@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\game"
   ],
-  "SelectedNode": "\\error",
+  "SelectedNode": "\\game\\index.html",
   "PreviewInSolutionExplorer": false
 }
