@@ -1,25 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <title>Dig Dug Lab</title>
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
-    <style>
-        h1 {
-            color: red;
-            font-family: sans-serif;
-            border-bottom: 1px solid blue;
-        }
+    <head>
+        <meta charset="utf-8" />
+        <title>Dig Dug Lab</title>
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
+        <style>
+            h1 {
+                color: red;
+                font-family: sans-serif;
+                border-bottom: 1px solid blue;
+                
+            }
 
-        blockquote {
-            background-color: lightgray;
-            padding: 1rem;
-        }
-    </style>
-</head>
+            blockquote {
+                background-color: lightgray;
+                padding: 1rem;
+            }
 
-	
-	<body style="background-color:lightblue;">
+            h2 {
+                margin-left: 100px;
+                color: purple;
+            }
+
+            body {
+                background-color: lightblue;
+            }
+
+            ul {
+                margin-left: 100px;
+            }
+            img.side {
+                float:right;
+                margin:0 12px;
+            }
+            p.unlisted {
+                margin-left: 100px;
+            }
+            p.linked {
+                float:right;
+                
+            }
+
+
+        </style>
+    </head>
+
+	<body>
         <main>
 
             <header>
@@ -31,9 +57,8 @@
                 </h1>
 
 
-                <a href="big/pic1.html"><img src="images/dig-dug-burnt.png" alt="dig dug burnt image" /></a>
-                <a href="big/pic1.html"><p>Click for "big" image</p></a>
-                <hr />
+                <a href="big/pic1.html"><img src="images/dig-dug-burnt.png" alt="dig dug burnt image" class="side"/></a>
+                <a href="big/pic1.html"><p class="linked">Click for "big" image</p></a>
             </header>
 
             <h2>Publishing Info</h2>
@@ -47,7 +72,7 @@
 
             <h2>Description</h2>
 
-            <p>
+            <p class="unlisted">
                 <em>Dig Dug</em> is a <strong>1-2 player arcade game</strong> in which you have to use your shovel to dig your
                 way through the earth.
                 <br />Stopping you from doing this are two monsters, called Pooka
@@ -56,16 +81,16 @@
                 an air pump, which you can use to inflate the monsters to the point where they explode.
                 <br />[...]
             </p>
-            <img src="images/fygar_inflate.jpg" alt="fygar image" />
+            <img src="images/fygar_inflate.jpg" alt="fygar image" class="side"/>
             <hr />
 
             <h2>Game Categories</h2>
 
             <ul>
-                <li><p>Genre: <strong>Action</strong></p></li>
-                <li><p>Perspective: <strong>Side view</strong></p></li>
-                <li><p>Visual: <strong>Fixed</strong></p></li>
-                <li><p>Gameplay: <strong>Arcade</strong></p></li>
+                <li><p class="listed">Genre: <strong>Action</strong></p></li>
+                <li><p class="listed">Perspective: <strong>Side view</strong></p></li>
+                <li><p class="listed">Visual: <strong>Fixed</strong></p></li>
+                <li><p class="listed">Gameplay: <strong>Arcade</strong></p></li>
             </ul>
             <hr />
 
@@ -81,7 +106,7 @@
 
             <footer id="Closing">
                 <h2>Source</h2>
-                <p><a href="https://www.mobygames.com/game/arcade/dig-dug" target="_blank">https://www.mobygames.com/game/arcade/dig-dug</a></p>
+                <p class="unlisted"><a href="https://www.mobygames.com/game/arcade/dig-dug" target="_blank">https://www.mobygames.com/game/arcade/dig-dug</a></p>
                 <hr size="50" color="gray" />
                 <img src="images/dig-dug.svg" alt="teal dig dug logo" />
             </footer>
