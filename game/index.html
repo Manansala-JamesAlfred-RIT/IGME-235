@@ -34,7 +34,7 @@
         }
 
         body {
-            background-color: #564946;
+            background-color: darkslategrey;
         }
 
         ul {
@@ -71,30 +71,36 @@
             border: 1px solid black;
             margin: 0 auto;
             padding: 1rem;
+            background-color: #564946;
+        }
+        main, header, footer {
+            margin: 0 auto;
+            width:80vw;
+            padding: 1rem;
         }
 
     </style>
 </head>
 
 <body>
+    <header>
+
+        <img src="images/dig-dug.png" alt="dig dug logo" width="480" height="120" />
+
+        <h1>
+            Dig Dug
+        </h1>
+        <hr color="#F6F8FF" />
+
+
+    </header>
+
     <div>
         <main>
-
-            <header>
-
-                <img src="images/dig-dug.png" alt="dig dug logo" width="480" height="120" />
-
-                <h1>
-                    Dig Dug
-                </h1>
-                <hr color="#F6F8FF" />
-
-                <a href="big/pic1.html"><img src="images/dig-dug-burnt.png" alt="dig dug burnt image" class="side" /></a>
-                <a href="big/pic1.html"><p class="linked">Click for "big" image</p></a>
-            </header>
+            <a href="big/pic1.html"><img src="images/dig-dug-burnt.png" alt="dig dug burnt image" class="side" /></a>
+            <a href="big/pic1.html"><p class="linked">Click for "big" image</p></a>
 
             <h2>Publishing Info</h2>
-
             <ul>
                 <li><p>Published by: Atari, Inc.</p></li>
                 <li><p>Developed by: <abbr title="Nakamura Manufacturing Company">Namco</abbr> Limited</p></li>
@@ -136,15 +142,17 @@
             </blockquote>
             <hr />
 
-            <footer id="Closing">
-                <h2>Source</h2>
-                <a href="https://www.mobygames.com/game/arcade/dig-dug" target="_blank"><p class="unlisted">https://www.mobygames.com/game/arcade/dig-dug</p></a>
-                <hr size="50" color="gray" />
-                <img src="images/dig-dug.svg" alt="teal dig dug logo" />
-            </footer>
+
 
         </main>
     </div>
+
+    <footer id="Closing">
+        <h2>Source</h2>
+        <a href="https://www.mobygames.com/game/arcade/dig-dug" target="_blank"><p class="unlisted">https://www.mobygames.com/game/arcade/dig-dug</p></a>
+        <hr size="50" color="gray" />
+        <img src="images/dig-dug.svg" alt="teal dig dug logo" />
+    </footer>
 </body>
 	
 </html>
