@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\game",
+    "\\game\\images",
+    "\\homework",
+    "\\tetris-start",
+    "\\tetris-start\\css"
   ],
-  "SelectedNode": "\\C:\\Users\\Owner\\Source\\Repos\\IGME-235",
   "PreviewInSolutionExplorer": false
 }
