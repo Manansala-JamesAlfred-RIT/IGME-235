@@ -15,6 +15,7 @@ html {
 html,
 body {
     margin: 0;
+    background-color: blanchedalmond;
 }
 
 header,
@@ -46,6 +47,8 @@ Grid Formatting
         height: 100vh;
         grid-template-rows: 1fr 2fr 10fr 2fr 1fr;
         grid-template-areas: "header" "navbar" "content" "sidebar" "footer";
+
+        max-width: 1200px
     }
 
 @media screen and (min-width: 760px) {
@@ -60,6 +63,16 @@ Grid Formatting
     }
 }
 
+@media screen and (min-width: 1200px)
+{
+    #wrapper {
+        height: 96vh;
+        margin: 2vh auto;
+    }
+
+
+
+}
 
 header {
     grid-area: header;
