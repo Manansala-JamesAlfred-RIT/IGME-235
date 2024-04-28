@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>Random Phrases</title>
 
     <style>
@@ -27,10 +26,17 @@
             text-align: center;
         }
 
-        #content {
-            padding: 20px;
+        footer {
+            background-color: rgba(0,0,0, 0.5);
+            padding: 5px;
             text-align: center;
         }
+         
+        #content{
+            padding: 50px;
+            text-align: center;
+        }
+
 
         button {
             background-color: #808080;
@@ -46,14 +52,14 @@
             border-radius: 8px;
         }
 
-            button:hover {
-                background-color: black;
-            }
+        button:hover {
+            background-color: black;
+        }
 
-            button:active {
-                color: black;
-                background-color: #ffd800
-            }
+        button:active {
+            color: black;
+            background-color: #ffd800
+        }
     </style>
 </head>
 <body>
@@ -61,20 +67,20 @@
         <h1> Reggie's Real Deal Quotes</h1>
     </header>
     <div id="content">
-        <p>Created By: James Alfred Rodrigazo Manansala</p>
-        <div id="quote">
-        </div>
-        <button onclick="quoteDisplay()">What would Reggie say?</button>
-
+        <div id="quote"></div>
+    <button onclick="quoteDisplay()">What would Reggie say?</button>
     </div>
+    <footer>
+        <p>Created By: James Alfred Rodrigazo Manansala</p>
+    </footer>
     <script>
         // Javascript array that holds 5 epic Reggie phrases
         const savedPhrases = [
-            "Mr. Miyamoto. my body is ready.",
+            "Mr. Miyamoto, my body is ready.",
             "That's all the time I've got. I have to get back to playing Animal Crossing: New Leaf on my Nintendo 3DS.",
             "Some people say I look like Bowser.",
             "I feel just like a purple pikmin.",
-            "Take this instead *fireballs you*"
+            "You want Mother 3? Take this instead! *fireballs you*"
         ];
 
         // Method that will randomly select a quote from the savedPhrases array
