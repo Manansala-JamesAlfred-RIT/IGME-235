@@ -88,11 +88,11 @@
 			 // Getting data-image from list
 			 const imageName = event.target.getAttribute("data-image");
 			 // Creating an image variable that will temporarily hold a value
-			 const image = doument.getElementById("tempholder");
+			 const image = document.getElementById("placeholder");
 			 // Finding the image from given list and setting it onto the image variable
 			 image.src = "images/" + imageName;
 			 // Updating Description
-			 document.getElementById("description").innerHTML = event.target.title;
+			 document.getElementById("description").innerText = event.target.title;
 		 }
 
 		 // Getting all the containers using querySelectorAll
