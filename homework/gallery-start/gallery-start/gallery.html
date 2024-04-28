@@ -52,17 +52,17 @@
 		  box-shadow: 7px 7px 5px #888;
 		  border:1px solid #aaa;
 		  transition-property: opacity;
-   		transition-duration: 0.5s;
+   		  transition-duration: 0.5s;
+		  width: 100%;
 		}
 
 		footer{
 			font-size:70%;
 			color:#bbb;
 			text-align:center;
+			clear: both;
 		}
    </style>
-  
-    </script>
 </head>
 <body>
   <section id="main">
@@ -82,11 +82,25 @@
      </footer>
     </section>
      <script>
-	/*
-	The name of the image is stored in the data-image (custom data) attribute of each
-	span. In JavaScript we access these custom data properties using the .dataset 
-	property. We also covered this in web-apps-6.
-	*/
+
+		 // Method that will display selected image from list.
+		 function imageDisplay(event) {
+			 // Getting data-image from list
+			 const imageName = event.target.getAttribute("data-image");
+			 // Creating an image variable that will temporarily hold a value
+			 const image = doument.getElementById("tempholder");
+			 // Finding the image from given list and setting it onto the image variable
+			 image.src = "images/" + imageName;
+			 // Updating Description
+			 document.getElementById("description").innerHTML = event.target.title;
+		 }
+
+		 // Getting all the containers using querySelectorAll
+		 const spans = document.querySelectorAll("span[data-image]");
+		 // Essentially, for when the button is clicked, will run the imageDisplay function and get the data associated.
+		 spans.forEach(span => {
+			 span.addEventListener("click", imageDisplay);
+		 });
 	</script>
 	   
 </body>
