@@ -53,14 +53,12 @@
 		  border:1px solid #aaa;
 		  transition-property: opacity;
    		  transition-duration: 0.5s;
-		  width: 100%;
 		}
 
 		footer{
 			font-size:70%;
 			color:#bbb;
 			text-align:center;
-			clear: both;
 		}
    </style>
 </head>
@@ -97,7 +95,10 @@
 
 		 // Getting all the containers using querySelectorAll
 		 const spans = document.querySelectorAll("span[data-image]");
-		 // Essentially, for when the button is clicked, will run the imageDisplay function and get the data associated.
+
+		 // Essentially, for when the button is clicked, will run the imageDisplay 
+		 // function and get the data associated. 
+		 // Will apply for each button (span) as they are all referenced into spans.
 		 spans.forEach(span => {
 			 span.addEventListener("click", imageDisplay);
 		 });
