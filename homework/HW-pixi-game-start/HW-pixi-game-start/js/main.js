@@ -97,6 +97,7 @@ function setup() {
 	app.ticker.add(gameLoop);
 
 	// #9 - Start listening for click events on the canvas
+	app.view.onclick = fireBullet;
 
 	// Now our `startScene` is visible
 	// Clicking the button calls startGame()
@@ -269,12 +270,26 @@ function gameLoop() {
     }
 
 	// #4 - Move Bullets
-
+	for (let b of bullets) {
+		b.move(dt);
+    }
 
 	// #5 - Check for Collisions
 	for (let c of circles) {
+
+		for (let b of bullets) {
 		// #5A - Circles and Bullets
-		// TODO
+			if (rectsIntersect(c, b)) {
+				fireballSound.play();
+				//createExplosion(c.x, c.y, 64, 64);
+				gameScene.removeChild(c);
+				c.isAlive = false;
+				gameScene.removeChild(b);
+				b.isAlive = false;
+				increaseScoreBy(1);
+            }
+			if (b.y < -10) b.isAlive = false;
+        }
 
 		// #5B - Circles and Ship
 		if (c.isAlive && rectsIntersect(c, ship)) {
@@ -335,4 +350,17 @@ function end() {
 
 	gameOverScene.visible = true;
 	gameScene.visible = false;
+}
+
+function fireBullet(e) {
+	// let rect = app.view.getBoundingClientRect();
+	// let mouseX = e.clientX - rect.x;
+	// let mouseY = e.clientY - rect.y;
+	// console.log(`${mouseX},${mouseY}`);
+	if (paused) return;
+
+	let b = new Bullet(0xFFFFFF, ship.x, ship.y);
+	bullets.push(b);
+	gameScene.addChild(b);
+	shootSound.play();
 }
