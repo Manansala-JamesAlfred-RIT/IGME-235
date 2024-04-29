@@ -207,7 +207,6 @@
                 line += `<span>Rating: ${rating}</span>`;
                 line += `<span><a target='_blank' href='${url}'>View on Giphy</a></span></div>`;
 
-
                 // 15th - Adding the <div> to 'bigString' and loop
                 bigString += line;
             }
@@ -217,18 +216,13 @@
 
             // 17th - Updating the status
             document.querySelector("#status").innerHTML = "<b>Success!</b>";
-
-
         }
 
         // Logging if error
         function dataError(e) {
             console.log("An error occured");
         }
-
-
     </script>
-
 
 </head>
 <body>
@@ -262,7 +256,6 @@
     <div id="content">
         <p>No data yet!</p>
     </div>
-
 
 </body>
 </html>
