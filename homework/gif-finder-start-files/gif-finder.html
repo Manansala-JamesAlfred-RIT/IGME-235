@@ -199,9 +199,14 @@
                 // 12th - Getting URL to the GIPHY page
                 let url = result.url;
 
+                // GETTING RATING OF GIF
+                let rating = result.rating.toUpperCase();
+
                 // 13th - Build a <div> to hold each result - ES6 String Templating
                 let line = `<div class='result'><img src='${smallURL}' title= '${result.id}' />`;
+                line += `<span>Rating: ${rating}</span>`;
                 line += `<span><a target='_blank' href='${url}'>View on Giphy</a></span></div>`;
+
 
                 // 15th - Adding the <div> to 'bigString' and loop
                 bigString += line;
