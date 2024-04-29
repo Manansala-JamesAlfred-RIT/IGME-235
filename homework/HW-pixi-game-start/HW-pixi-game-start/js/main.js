@@ -96,6 +96,7 @@ function createLabelsAndButtons() {
 	});
 
 	// Setting up Start scene
+	// 1A - Make top start label
 	let startLabel1 = new PIXI.Text("Circle Blast!");
 	startLabel1.style = new PIXI.TextStyle({
 		fill: 0xFFFFFF,
@@ -105,10 +106,10 @@ function createLabelsAndButtons() {
 		strokeThickness: 6
 	});
 	startLabel1.x = 50;
-	startLablel1.y = 120;
+	startLabel1.y = 120;
 	startScene.addChild(startLabel1);
 
-	// Making middle start label
+	// 1B - Making middle start label
 	let startLabel2 = new PIXI.Text("R U worthy...?");
 	startLabel2.style = new PIXI.TextStyle({
 		fill: 0xFFFFFF,
@@ -122,14 +123,14 @@ function createLabelsAndButtons() {
 	startLabel2.y = 300;
 	startScene.addChild(startLabel2);
 
-	// Making start game button
+	// 1C - Making start game button
 	let startButton = new PIXI.Text("Enter, ... if you dare!");
 	startButton.style = buttonStyle;
 	startButton.x = 80;
 	startButton.y = sceneHeight - 100;
 	startButton.interactive = true;
 	startButton.buttonMode = true;
-	startButton.on("pointerup", startGame);
+	//startButton.on("pointerup", startGame);
 	startButton.on('pointerover', e => e.target.alpha = 0.7);
 	startButton.on('pointerout', e => e.currentTarget.alpha = 1.0);
 	startScene.addChild(startButton);
