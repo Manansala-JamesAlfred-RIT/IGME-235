@@ -88,27 +88,28 @@ function dataLoaded(e) {
     // 9th - Start building HTML string to display to user
     let results = obj.data;
     console.log("results.length = " + results.length);
-    let bigString = "<p><i>Here are " + results.length + " results for '" + displayTerm + "'</i></p>";
+    let bigString = "";
 
     // 10th - Looping through the array of results
     for (let i = 0; i < results.length; i++) {
         let result = results[i];
 
         // 11th - Getting the URL to the GIF
-        let smallURL = result.images.fixed_width_small.url;
+        let smallURL = result.images.fixed_width_downsampled.url;
         if (!smallURL) smallURL = "images/no-image-found.png";
 
         // 12th - Getting URL to the GIPHY page
         let url = result.url;
 
         // GETTING RATING OF GIF
-        let rating = result.rating.toUpperCase();
+        let rating = (result.rating ? result.rating : "NA").toUpperCase();
 
         // 13th - Build a <div> to hold each result - ES6 String Templating
-        let line = `<div class='result'><img src='${smallURL}' title= '${result.id}' />`;
-        line += `<span>Rating: ${rating}</span>`;
-        line += `<span><a target='_blank' href='${url}'>View on Giphy</a></span></div>`;
-
+        let line = `<div class='result'>`;
+        line += `<img src='${smallURL}' title='${result.id}' />`;
+        line += `<span><a target='_blank' href='${url}'>View on Giphy</a>`;
+        line += `<p>Rating: ${rating}</span>`;
+        line += `</div>`;
         // 15th - Adding the <div> to 'bigString' and loop
         bigString += line;
     }
@@ -117,7 +118,7 @@ function dataLoaded(e) {
     document.querySelector("#content").innerHTML = bigString;
 
     // 17th - Updating the status
-    document.querySelector("#status").innerHTML = "<b>Success!</b>";
+    document.querySelector("#status").innerHTML = "<b>Success!</b><p><i>Here are " + results.length + " results for '" + displayTerm + "'</i></p>";
 }
 
 // Logging if error
