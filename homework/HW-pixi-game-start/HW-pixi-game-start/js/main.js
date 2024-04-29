@@ -42,7 +42,7 @@ let stage;
 
 // game variables
 let startScene;
-let gameScene, ship, scoreLabel, lifeLabel, shootSound, hitSound, fireballSound;
+let gameScene, ship, scoreLabel, lifeLabel, shootSound, hitSound, fireballSound, gameOverScoreLabel;
 let gameOverScene;
 
 let circles = [];
@@ -202,6 +202,21 @@ function createLabelsAndButtons() {
 	playAgainButton.on('pointerover', e => e.target.alpha = 0.7); // concise arrow function with no brackets
 	playAgainButton.on('pointerout', e => e.currentTarget.alpha = 1.0); // ditto
 	gameOverScene.addChild(playAgainButton);
+
+	// Creating Game Over Score Label
+	gameOverScoreLabel = new PIXI.Text();
+	let gameOverScoreStyle = new PIXI.TextStyle({
+		fill: 0xFFFFFF,
+		stroke: 0xFF0000,
+		strokeThickness: 6,
+		fontSize: 40,
+		fontFamily: "Futura",
+		fontStyle: 'italic'
+	});
+	gameOverScoreLabel.style = gameOverScoreStyle;
+	gameOverScoreLabel.x = 150;
+	gameOverScoreLabel.y = sceneHeight - 225;
+	gameOverScene.addChild(gameOverScoreLabel);
 }
 
 function increaseScoreBy(value) {
@@ -355,6 +370,9 @@ function end() {
 
 	gameOverScene.visible = true;
 	gameScene.visible = false;
+
+	// Adding Final Score text
+	gameOverScoreLabel.text = `Final score: ${score}`;
 }
 
 function fireBullet(e) {
