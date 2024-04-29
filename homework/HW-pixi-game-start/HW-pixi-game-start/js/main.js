@@ -318,6 +318,10 @@ function gameLoop() {
 	}
 
 	// #8 - Load next level
+	if (circles.length == 0) {
+		levelNum++;
+		loadLevel();
+	}
 }
 
 function createCircles(numCircles) {
@@ -363,4 +367,21 @@ function fireBullet(e) {
 	bullets.push(b);
 	gameScene.addChild(b);
 	shootSound.play();
+}
+
+function loadSpriteSheet() {
+	// The 16 animation frames in each row are 64x64 pixels
+	// We're using the 2nd row
+	// https://pixijs.download/release/docs/PIXI.BaseTexture.html
+	let spriteSheet = PIXI.BaseTexture.from("images/explosions.png");
+	let width = 64;
+	let height = 64;
+	let numFrames = 16;
+	let textures = [];
+	for (let i = 0; i < numFrames; i++) {
+		// https://pixijs.download/release/docs/PIXI.Texture.html
+		let frame = new PIXI.Texture(spriteSheet, new PIXI.Rectangle(i * width, 64, width, height));
+		textures.push(frame);
+	}
+	return textures;
 }
