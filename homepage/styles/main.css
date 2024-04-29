@@ -27,7 +27,7 @@ footer {
     margin: 0 auto;
 }
 
-regularText {
+p {
     font-family: 'Times New Roman', sans-serif;
     margin: 0;
     padding: 0;
@@ -105,7 +105,7 @@ footer h4 {
     color: palegoldenrod;
 }
 
-#contact regularText {
+#contact p {
     color: #f0f0f0;
     font-size: 14px;
 }
