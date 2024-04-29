@@ -96,74 +96,87 @@
     </style>
 
     <script>
-    // 1
-  	window.onload = (e) => {document.querySelector("#search").onclick = searchButtonClicked};
+        // 1
+  	    window.onload = (e) => {document.querySelector("#search").onclick = searchButtonClicked};
 
-	// 2
-	let displayTerm = "";
+	    // 2
+	    let displayTerm = "";
 
-	// 3
-	function searchButtonClicked(){
-		console.log("searchButtonClicked() called");
+	    // 3
+	    function searchButtonClicked(){
+		    console.log("searchButtonClicked() called");
 
-        // Typing code from Homework github Document
+            // Typing code from Homework github Document
 
-        // 1st
-        const GIPHY_URL = "https://api.giphy.com/v1/gifs/search?";
+            // 1st
+            const GIPHY_URL = "https://api.giphy.com/v1/gifs/search?";
 
-        // 2nd - key from document
-        let GIPHY_KEY = "5PuWjWVnwpHUQPZK866vd7wQ2qeCeqg7";
+            // 2nd - key from document
+            let GIPHY_KEY = "5PuWjWVnwpHUQPZK866vd7wQ2qeCeqg7";
 
-        // 3rd
-        let url = GIPHY_URL;
-        url += "api_key=" + GIPHY_KEY;
+            // 3rd
+            let url = GIPHY_URL;
+            url += "api_key=" + GIPHY_KEY;
 
-        // 4th - Parsing user entered term to search
-        let term = document.querySelector("#searchterm").value;
-        displayTerm = term;
+            // 4th - Parsing user entered term to search
+            let term = document.querySelector("#searchterm").value;
+            displayTerm = term;
 
-        // 5th - Getting rid of any leading and trailing spaces
-        term = term.trim();
+            // 5th - Getting rid of any leading and trailing spaces
+            term = term.trim();
 
-        // 6th - Encoding spaces and special characters
-        term = encodeURIComponent(term);
+            // 6th - Encoding spaces and special characters
+            term = encodeURIComponent(term);
 
-        // 7th - Bails out of function if no term to search.
-        if (term.length < 1) return;
+            // 7th - Bails out of function if no term to search.
+            if (term.length < 1) return;
 
-        // 8th - Appending search term to the URL.
-        url += "&q=" + term;
+            // 8th - Appending search term to the URL.
+            url += "&q=" + term;
 
-        // 9th - Grabbing user chosen search limit from select and appending it to URL
-        let limit = document.querySelector("#limit").value;
-        url += "&limit=" + limit;
+            // 9th - Grabbing user chosen search limit from select and appending it to URL
+            let limit = document.querySelector("#limit").value;
+            url += "&limit=" + limit;
 
-        // 10th Update UI
-        document.querySelector("#status").innerHTML = "<b>Searching for '" + displayTerm + "'</b";
+            // 10th Update UI
+            document.querySelector("#status").innerHTML = "<b>Searching for '" + displayTerm + "'</b";
 
-        // 11th - See what URL looks like (in the dev tools console)
-        console.log(url);
+            // 11th - See what URL looks like (in the dev tools console)
+            console.log(url);
 
-        // 12th - Requesting Data
-        getData(url);
-	}
+            // 12th - Requesting Data
+            getData(url);
+	    }
 
-    // Implementation of GetData function
-    function getData(url) {
+        // Implementation of GetData function
+        function getData(url) {
 
-        // 1st - Creating a new XHR object
-        let xhr = new XMLHttpRequest();
+            // 1st - Creating a new XHR object
+            let xhr = new XMLHttpRequest();
 
-        // 2nd - Setting onload handler
-        xhr.onload = dataLoaded;
+            // 2nd - Setting onload handler
+            xhr.onload = dataLoaded;
 
-        // 3rd - Setting onerror handler
-        xhr.onerror = dataError;
+            // 3rd - Setting onerror handler
+            xhr.onerror = dataError;
 
-        // 4th - Open connection and send the request
-        xhr.open("GET", url);
-        xhr.send();
-    }
+            // 4th - Open connection and send the request
+            xhr.open("GET", url);
+            xhr.send();
+        }
+
+        // Callback functions
+        function dataLoaded(e) {
+            // 5th - event.target is the XHR object
+            let xhr = e.target;
+
+            // 6th - xhr.responseText is the JSON file downloaded
+            console.log(xhr.responseText);
+        }
+
+        function dataError(e) {
+            console.log("An error occured");
+        }
 
 
     </script>
