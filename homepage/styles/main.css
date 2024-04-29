@@ -9,9 +9,24 @@ header {
     padding: 20px 0;
 }
 
+footer {
+    background-color: #333;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px 0;
+}
+
 regularText {
     font-family: 'Times New Roman', sans-serif;
     margin: 0;
     padding: 0;
-    color: white;
+    color: black;
+}
+
+#bio {
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc; 
+    border-radius: 5px;
 }
