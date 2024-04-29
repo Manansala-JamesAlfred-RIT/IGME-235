@@ -130,8 +130,78 @@ function createLabelsAndButtons() {
 	startButton.y = sceneHeight - 100;
 	startButton.interactive = true;
 	startButton.buttonMode = true;
-	//startButton.on("pointerup", startGame);
+	startButton.on("pointerup", startGame);
 	startButton.on('pointerover', e => e.target.alpha = 0.7);
 	startButton.on('pointerout', e => e.currentTarget.alpha = 1.0);
 	startScene.addChild(startButton);
+
+	// 2 - Set up gameScene
+	let textStyle = new PIXI.TextStyle({
+		fill: 0xFFFFFF,
+		fontSize: 18,
+		fontFamily: "Futura",
+		stroke: 0xFF0000,
+		strokeThickness: 4
+	});
+
+	// 2A - Make score label
+	scoreLabel = new PIXI.Text();
+	scoreLabel.style = textStyle;
+	scoreLabel.x = 5;
+	scoreLabel.y = 5;
+	gameScene.addChild(scoreLabel);
+	increaseScoreBy(0);
+
+	// 2B - Make life label
+	lifeLabel = new PIXI.Text();
+	lifeLabel.style = textStyle;
+	lifeLabel.x = 5;
+	lifeLabel.y = 26;
+	gameScene.addChild(lifeLabel);
+	decreaseLifeBy(0);
+
+	// 3 - set up `gameOverScene`
+	// 3A - make game over text
+	let gameOverText = new PIXI.Text("Game Over!\n        :-O");
+	textStyle = new PIXI.TextStyle({
+		fill: 0xFFFFFF,
+		fontSize: 64,
+		fontFamily: "Futura",
+		stroke: 0xFF0000,
+		strokeThickness: 6
+	});
+	gameOverText.style = textStyle;
+	gameOverText.x = 100;
+	gameOverText.y = sceneHeight / 2 - 160;
+	gameOverScene.addChild(gameOverText);
+
+	// 3B - make "play again?" button
+	let playAgainButton = new PIXI.Text("Play Again?");
+	playAgainButton.style = buttonStyle;
+	playAgainButton.x = 150;
+	playAgainButton.y = sceneHeight - 100;
+	playAgainButton.interactive = true;
+	playAgainButton.buttonMode = true;
+	playAgainButton.on("pointerup", startGame); // startGame is a function reference
+	playAgainButton.on('pointerover', e => e.target.alpha = 0.7); // concise arrow function with no brackets
+	playAgainButton.on('pointerout', e => e.currentTarget.alpha = 1.0); // ditto
+	gameOverScene.addChild(playAgainButton);
+}
+
+function increaseScoreBy(value) {
+	score += value;
+	scoreLabel.text = `Score  ${score}`;
+}
+
+function decreaseLifeBy(value) {
+	life -= value;
+	life = parseInt(life);
+	lifeLabel.text = `Life    ${life}%`;
+}
+
+function startGame() {
+	startScene.visible = false;
+	gameOverScene.visible = false;
+	gameScene.visible = true;
+	// More later.
 }
