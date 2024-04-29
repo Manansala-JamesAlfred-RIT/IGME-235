@@ -94,6 +94,7 @@ function setup() {
 	// #7 - Load sprite sheet
 
 	// #8 - Start update loop
+	app.ticker.add(gameLoop);
 
 	// #9 - Start listening for click events on the canvas
 
@@ -217,4 +218,33 @@ function startGame() {
 	gameOverScene.visible = false;
 	gameScene.visible = true;
 	// More later.
+}
+
+function gameLoop() {
+	// if (paused) return; // keep this commented out for now
+
+	// #1 - Calculate "delta time"
+	let dt = 1 / app.ticker.FPS;
+	if (dt > 1 / 12) dt = 1 / 12;
+
+	// #2 - Move Ship
+	let mousePosition = app.renderer.plugins.interaction.mouse.global;
+	ship.position = mousePosition;
+
+	// #3 - Move Circles
+
+
+	// #4 - Move Bullets
+
+
+	// #5 - Check for Collisions
+
+
+	// #6 - Now do some clean up
+
+
+	// #7 - Is game over?
+
+
+	// #8 - Load next level
 }
