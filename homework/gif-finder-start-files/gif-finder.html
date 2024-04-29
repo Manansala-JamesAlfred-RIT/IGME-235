@@ -143,7 +143,28 @@
 
         // 11th - See what URL looks like (in the dev tools console)
         console.log(url);
+
+        // 12th - Requesting Data
+        getData(url);
 	}
+
+    // Implementation of GetData function
+    function getData(url) {
+
+        // 1st - Creating a new XHR object
+        let xhr = new XMLHttpRequest();
+
+        // 2nd - Setting onload handler
+        xhr.onload = dataLoaded;
+
+        // 3rd - Setting onerror handler
+        xhr.onerror = dataError;
+
+        // 4th - Open connection and send the request
+        xhr.open("GET", url);
+        xhr.send();
+    }
+
 
     </script>
 
