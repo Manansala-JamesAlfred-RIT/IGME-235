@@ -31,11 +31,41 @@ regularText {
     border-radius: 5px;
 }
 
+h1 {
+    color: goldenrod;
+}
+
 #projects h2 {
     text-align: center;
+}
 
+#projects a {
+    color: darkgoldenrod;
+}
+
+#github {
+    text-align: center
+}
+
+
+#contact {
+    padding: 10px;
+}
+
+footer h3 {
+    color: white;
+}
+
+#contact h3 {
+    color: palegoldenrod;
 }
 
 #contact regularText {
     color: #f0f0f0;
+    font-size: 14px;
 }
+
+#contact a {
+    color: dimgray;
+}
+
