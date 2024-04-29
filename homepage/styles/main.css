@@ -30,3 +30,12 @@ regularText {
     border: 1px solid #ccc; 
     border-radius: 5px;
 }
+
+#projects h2 {
+    text-align: center;
+
+}
+
+#contact regularText {
+    color: #f0f0f0;
+}
