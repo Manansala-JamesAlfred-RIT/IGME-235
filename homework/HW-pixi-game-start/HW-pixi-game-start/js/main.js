@@ -382,9 +382,26 @@ function fireBullet(e) {
 	// console.log(`${mouseX},${mouseY}`);
 	if (paused) return;
 
-	let b = new Bullet(0xFFFFFF, ship.x, ship.y);
-	bullets.push(b);
-	gameScene.addChild(b);
+	if (score >= 5) {
+		// Creating 3 bullets
+		let b1 = new Bullet(0xFFFFFF, ship.x, ship.y);
+		let b2 = new Bullet(0xFFFFFF, ship.x - 20, ship.y);
+		let b3 = new Bullet(0xFFFFFF, ship.x + 20, ship.y);
+
+		// Adding bullets to game scene
+		bullets.push(b1, b2, b3);
+		gameScene.addChild(b1, b2, b3);
+	}
+
+	// If under 5 points...
+	else {
+		// Fire only a single bullet
+		let b = new Bullet(0xFFFFFF, ship.x, ship.y);
+		bullets.push(b);
+		gameScene.addChild(b);
+
+    }
+	// Sound played no matter what.
 	shootSound.play();
 }
 
