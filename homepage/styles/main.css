@@ -1,5 +1,12 @@
+html {
+    background-color: #0D001A;
+}
+
 body {
     background-color: #f0f0f0;
+    margin: 0 auto;
+    max-width: 960px;
+    padding: 0 20px;
 }
 
 header {
@@ -10,10 +17,14 @@ header {
 }
 
 footer {
+    bottom: 0;
+    left: 0;
+    width: auto;
     background-color: #333;
     color: #FFFFFF;
     text-align: center;
     padding: 20px 0;
+    margin: 0 auto;
 }
 
 regularText {
@@ -23,6 +34,8 @@ regularText {
     color: black;
 }
 
+
+
 #bio {
     padding: 20px;
     margin: 20px;
@@ -31,29 +44,61 @@ regularText {
     border-radius: 5px;
 }
 
+#bio img {
+    display: block;
+    margin: 0 auto 20px;
+    border-radius: 33%;
+    width: 44%;
+}
+
 h1 {
     color: goldenrod;
 }
 
-#projects h2 {
-    text-align: center;
+projects {
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
+
+#projects h2, ul {
+    margin-top: 0;
+    text-align: center;
+    padding: 0;
+}
+
+#projects li {
+    display: inline;
+    margin: 0 10px;
+
+}
+
 
 #projects a {
     color: darkgoldenrod;
 }
 
 #github {
-    text-align: center
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
+#github a {
+    color: darkgoldenrod;
+}
+
+footer h4 {
+    color: dimgray;
+}
 
 #contact {
     padding: 10px;
-}
-
-footer h3 {
-    color: white;
 }
 
 #contact h3 {
