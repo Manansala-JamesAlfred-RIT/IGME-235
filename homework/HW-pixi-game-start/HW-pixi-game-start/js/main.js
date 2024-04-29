@@ -92,6 +92,7 @@ function setup() {
 	});
 
 	// #7 - Load sprite sheet
+	explosionTextures = loadSpriteSheet();
 
 	// #8 - Start update loop
 	app.ticker.add(gameLoop);
@@ -281,7 +282,7 @@ function gameLoop() {
 		// #5A - Circles and Bullets
 			if (rectsIntersect(c, b)) {
 				fireballSound.play();
-				//createExplosion(c.x, c.y, 64, 64);
+				createExplosion(c.x, c.y, 64, 64);
 				gameScene.removeChild(c);
 				c.isAlive = false;
 				gameScene.removeChild(b);
@@ -384,4 +385,21 @@ function loadSpriteSheet() {
 		textures.push(frame);
 	}
 	return textures;
+}
+
+function createExplosion(x, y, frameWidth, frameHeight) {
+	// https://pixijs.download/release/docs/PIXI.AnimatedSprite.html
+	// The animation frames are 64x64 pixels
+	let w2 = frameWidth / 2;
+	let h2 = frameHeight / 2;
+	let expl = new PIXI.AnimatedSprite(explosionTextures);
+	expl.x = x - w2;
+	expl.y = y - h2;
+	expl.animationSpeed = 1 / 7;
+	expl.loop = false;
+	expl.onComplete = e => gameScene.removeChild(expl);
+	explosions.push(expl);
+	gameScene.addChild(expl);
+	expl.play();
+
 }
